@@ -1,0 +1,8 @@
+Banner Images--2000x783 -- >depth 96
+Logo 63x100 -bit depth 8
+charity reg no 
+Main logo 287x131 depth 32
+semi--643x533 depth 72
+general image 1000x667 depth 96-6 images
+kutty icon - 16x16 depth 32
+Member photo 145x137 depth 24

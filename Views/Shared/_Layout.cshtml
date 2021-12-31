@@ -1,0 +1,276 @@
+﻿@using System.Web.Optimization;
+<!doctype html>
+<html style="height: auto; min-height: 100%;">
+<head>
+    @*<base href="/">*@
+    <base href="/">
+    <meta charset="utf-8" />
+    <title>Welcome to TNSYA</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=11">
+    @*<meta http-equiv="X-UA-Compatible" content="IE=11" />*@
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="icon" href="~/images/cham.gif">
+    @Scripts.Render("~/bundles/defaultscripts")
+    @*<script src="~/Lib/moment-with-locales.min.js"></script>*@
+    @Scripts.Render("~/bundles/customscripts")
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.js"></script>
+    <script src="https://rawgit.com/beaver71/Chart.PieceLabel.js/master/build/Chart.PieceLabel.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/css/bootstrapv4.min.css?v1">
+    <link href="~/css/magnific-popup.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/css/toaster.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+    <link href="~/Styles/main.css" rel="stylesheet" />
+    <link href="~/Styles/menu.css" rel="stylesheet" />
+    <link href="~/Styles/media.css" rel="stylesheet" />
+    <link href="~/css/landing.css" rel="stylesheet" />
+    <link href="~/PhotoCSS/animate.min.css" rel="stylesheet">
+    <link href="~/PhotoCSS/prettyPhoto.css" rel="stylesheet">
+    <link href="~/PhotoCSS/style.css?v1" rel="stylesheet" />
+    <link href="~/PhotoCSS/responsive.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/bower_components/Ionicons/css/ionicons.min.css">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href="~/css/summernote.css" rel="stylesheet" />
+    @*<script src="~/Lib/pdfmake.min.js"></script>
+    <script src="~/Lib/html2canvas.min.js"></script>*@
+    @*<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>*@
+</head>
+<body ng-app="reportApp" ng-controller="MainController" ng-cloak>
+    <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-right'}"></toaster-container>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger ng-binding" href="home">TNSYA</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="about-us">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="events">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="http://event.tnsya.org/">Event Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" target="_blank" href="~/UploadedFiles/yoga-event-2020.pdf">Download Brochure</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="body-content">
+        @RenderBody()
+    </div>
+    @*<ul class="sf-menu">
+        <li><a href="http://event2019.tnsya.org/event2019.pdf" class="sel">brochure download</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>*@
+
+    @*<div class="cycle-slideshow banners" data-cycle-slides="> img">
+        <img src="~/UploadedFiles/TNSYABanner4.JPG" alt="Padmam Yoga Trust" />
+    </div>*@
+
+    <footer>
+        <div class="contactinfo">
+            <div>
+                <a href="tel:90032 88211"><i class="fa fa-phone" aria-hidden="true"></i>+91 90032 88211</a>
+                <a href="tel:01777711770"><i class="fa fa-phone" aria-hidden="true"></i>tnsya2014@gmail.com</a>
+
+            </div>
+            <div><i class="fa fa-map-marker" aria-hidden="true"></i>Address :No.1, Nehru Street, Co-operative Nagar, Nilamangai Nagar, Adambakkam, Chennai 600088.</div>
+            <br>
+            <div><i class="fa fa-map-marker" aria-hidden="true"></i>Regd. Address: No.8A/139, Sasthri Nagar, 2nd Street, Adambakkam , Chennai 600088.</div>
+
+        </div>
+        <img src="Images/approved.gif" alt="Approved Centre" class="approved">
+        <div class="legal">
+            <a href='privacy-policy'>Privacy Policy</a> | Registered no. 531/2014 &copy; Tamilnadu Sports Yogasana Association<br>
+        </div>
+    </footer>
+    @*    <div class="top-layer">
+        <div class="col-md-10">
+            <h3>CT</h3>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+    <div class="btm-navbar">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+            </div>
+            <ul class="nav navbar-nav">
+                <li ng-repeat="menu in MenuList" class="dropdown" ng-class="{'active': rootname == menu.Path }">
+                    <a href="{{menu.Path}}" class="dropdown-toggle info" data-toggle="dropdown" onclick="window.location.href=this">{{menu.MenuName}}</a>
+                    <ul class="dropdown-menu" ng-show="menu.SubMenu!=''">
+                        <li ng-repeat="smenu in menu.SubMenu" ng-class="{'active': rootname == smenu.Path }"><a href="{{smenu.Path}}" onclick="window.location.href=this">{{smenu.MenuName}}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-lock" aria-hidden="true"></i>@Convert.ToString(Session["DisplayName"])
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a ng-click="clearlogout()" href="@Url.Action("Logout", "Home")">Sign out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>*@
+
+
+    <div class="container-fluid">
+        <div class="row">
+        </div>
+
+    </div>
+
+    @*    <div id="loader" class="animationload hide">
+        <div class="loader">
+            Loading...
+       
+        </div>
+    </div>*@
+
+    <style>
+        li.dropdown.ng-scope:hover ul {
+            display: block;
+        }
+
+        i.active, .inactive {
+            font-size: 40px;
+            cursor: pointer;
+        }
+
+        i.active, .inactive {
+            font-size: 40px;
+            cursor: pointer;
+        }
+
+        i.active {
+            color: #5cb85c;
+        }
+
+        i.inactive {
+            color: #d9534f;
+        }
+
+        .animationload {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 999999;
+        }
+
+            .animationload .loader {
+                width: 200px;
+                height: 200px;
+                font-size: 0;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                background-image: url("images/loader.gif");
+                background-repeat: no-repeat;
+                background-position: center;
+                margin: -100px 0 0 -100px;
+            }
+
+        .disabledinput {
+            background: #ced0da!important;
+        }
+
+        table tr {
+            font-size: 14px;
+        }
+    </style>
+    <script src="~/bower_components/jquery/jquery.min.js"></script>
+    <script src="~/bower_components/bootstrap/bootstrapv4.js"></script>
+    <script src="~/Lib/jquery.easing.1.3.js"></script>
+    <script src="~/Lib/jquery.magnific-popup.js"></script>
+    <script>
+        (function ($) {
+            "use strict"; // Start of use strict
+
+            // Smooth scrolling using jQuery easing
+            $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html, body').animate({
+                            scrollTop: (target.offset().top - 72)
+                        }, 1000, "easeInOutExpo");
+                        return false;
+                    }
+                }
+            });
+            // Magnific popup calls
+            $('#portfolio').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                tLoading: 'Loading image #%curr%...',
+                mainClass: 'mfp-img-mobile',
+                gallery: {
+                    enabled: true,
+                    navigateByImgClick: true,
+                    preload: [0, 1]
+                },
+                image: {
+                    tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+                }
+            });
+
+            // Closes responsive menu when a scroll trigger link is clicked
+            $('.js-scroll-trigger').click(function () {
+                $('.navbar-collapse').collapse('hide');
+            });
+
+            // Activate scrollspy to add active class to navbar items on scroll
+            $('body').scrollspy({
+                target: '#mainNav',
+                offset: 75
+            });
+
+            // Collapse Navbar
+            var navbarCollapse = function () {
+                if ($("#mainNav").offset().top > 100) {
+                    $("#mainNav").addClass("navbar-scrolled");
+                } else {
+                    $("#mainNav").removeClass("navbar-scrolled");
+                }
+            };
+            // Collapse now if page is not at top
+            navbarCollapse();
+            // Collapse the navbar when page is scrolled
+            $(window).scroll(navbarCollapse);
+
+            $('a["title"]').on('mouseover', function (e) {
+                $("p").css("background-color", "yellow");
+            });
+
+        })(jQuery); // End of use strict
+
+    </script>
+</body>
+
+@RenderSection("scripts", required: false)
+@RenderSection("styles", required: false)
+<script src="~/Lib/jquery.maphilight.min.js"></script>
+</html>

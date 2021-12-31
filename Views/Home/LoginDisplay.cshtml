@@ -1,0 +1,256 @@
+﻿@{
+    ViewBag.Title = "LoginDisplay";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+@Html.Hidden("RedirectToResetPWD", Url.Action("ChangePasswordDisplay", "Home", new { Page = @Request.QueryString["Page"] }))
+@Html.Hidden("RedirectToHome", Url.Action("Index", "Home", new { Page = @Request.QueryString["Page"] }))
+<div ng-app="LoginApp" ng-controller="LoginController" class="container">
+    <div class="container h-100">
+        <div class="d-flex justify-content-center h-100">
+            <div class="user_card">
+                <div class="d-flex justify-content-center">
+                    <div class="brand_logo_container">
+                        <img src="~/images/ct1.png" class="brand_logo" alt="Logo">
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center form_container">
+                    @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "login-form", data_async = "", data_target = "#rating-modal" }))
+                    {
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                            </div>
+                            <input type="text" name="username" class="form-control input_user" autocomplete="off" placeholder="username">
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fa fa-key"></i></span>
+                            </div>
+                            <input type="password" name="password" class="form-control input_pass" autocomplete="off" placeholder="password">
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customControlInline">
+                                <label class="custom-control-label" for="customControlInline">Remember me</label>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center mt-3 login_container">
+                            <button type="submit" name="button" class="btn login_btn">Login</button>
+                        </div>
+                        <div style="color :red;text-align:center;background :bisque;margin :15px;padding :3px;" ng-if="errorMessage"><span ng-bind="errorMessage"></span> </div>
+                    }
+                </div>
+
+                @*<div class="mt-4">
+                    <div class="d-flex justify-content-center links">
+                        Don't have an account? <a href="#" class="ml-2">Sign Up</a>
+                    </div>
+                    <div class="d-flex justify-content-center links">
+                        <a href="#">Forgot your password?</a>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </div>
+    @*    <div class="login-logo">
+        <h1>Call Tracker</h1>
+    </div>*@
+    @*    <div id="signin-form">
+        <h3>SIGN-IN</h3>
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "login-form", data_async = "", data_target = "#rating-modal" }))
+        {
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input class="form-control" type="text" autocomplete="off" placeholder="Username" name="username" />
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input class="form-control" type="password" autocomplete="off" placeholder="Password" name="password" />
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+            <div class="row">
+                <div class="col-lg-6"></div>
+                <div class="col-lg-6">
+                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#Resetmodal">Reset Password</button>
+                </div>
+            </div>
+            
+            <div style="color :red;text-align:center;background :bisque;margin :15px;padding :3px;" ng-if="errorMessage"><span ng-bind="errorMessage"></span> </div>
+        }
+    </div>*@
+
+    @*<div class="modal fade" id="Resetmodal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #3c8dbc;color:white">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                    <h4 class="modal-title" id="myModalLabel">Reset Password</h4>
+                </div>
+                <div class="modal-body">
+                    Please email to <strong>{{resetemailid}}</strong> reset your password
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>*@
+</div>
+<script src="~/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="~/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/Lib/angular.min.js"></script>
+<script src="~/Assert/angular-animate.min.js"></script>
+<script src="~/plugins/iCheck/icheck.min.js"></script>
+<script src="~/js/animate.js"></script>
+<script src="~/js/loginApp.js"></script>
+
+<style>
+    /* Coded with love by Mutiullah Samim */
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: #386170 !important;
+    }
+
+    .user_card {
+        height: 400px;
+        width: 350px;
+        margin-top: auto;
+        margin-bottom: auto;
+        background: #f39c12;
+        position: relative;
+        top: 12em;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+    }
+
+    .brand_logo_container {
+        position: absolute;
+        height: 170px;
+        width: 170px;
+        top: -75px;
+        border-radius: 50%;
+        background: #386170;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .brand_logo {
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        border: 2px solid white;
+    }
+
+    .form_container {
+        margin-top: 100px;
+    }
+
+    .login_btn {
+        width: 100%;
+        background: #c0392b !important;
+        color: white !important;
+    }
+
+        .login_btn:focus {
+            box-shadow: none !important;
+            outline: 0px !important;
+        }
+
+    .login_container {
+        padding: 0 2rem;
+    }
+
+    .input-group-text {
+        background: #c0392b !important;
+        color: white !important;
+        border: 0 !important;
+        border-radius: 0.25rem 0 0 0.25rem !important;
+    }
+
+    .input_user,
+    .input_pass:focus {
+        box-shadow: none !important;
+        outline: 0px !important;
+    }
+
+    .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+        background-color: #c0392b !important;
+    }
+
+    .login-logo h1 {
+        font-size: 36px;
+        font-weight: bold;
+        color: #d2d6de;
+        text-align: center;
+        margin: 40px 0 60px 0;
+    }
+
+    #signin-form {
+        max-width: 350px;
+        margin: 0 auto 0;
+        padding: 10px 0;
+        background: #ffffff;
+    }
+
+        #signin-form h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #212121;
+            text-align: center;
+        }
+    /*.login-page, .register-page {
+        background: url('images/bg.jpg') repeat -440px -360px;
+    }*/
+    .login-form {
+        padding-bottom: 12px;
+    }
+
+    .fa {
+        font-size: x-large;
+    }
+
+    .input-group-addon {
+        border-radius: 0;
+        background-color: #fff;
+    }
+
+    .input-group {
+        padding: 12px 20px;
+    }
+
+    .form-control {
+        border-radius: 0;
+    }
+
+    .row {
+        padding: 6px 0 12px 0;
+    }
+
+    .col-lg-6 {
+        padding-left: 45px;
+    }
+
+    .btn {
+        border-radius: 0;
+    }
+
+    .btn-block {
+        width: 30%;
+        margin: 6px 0 0 35%;
+    }
+
+    .btn-link {
+        padding: 5px;
+    }
+</style>
